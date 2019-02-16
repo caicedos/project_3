@@ -1,19 +1,13 @@
 import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
-// import Form from "../components/Form";
-// import Book from "../components/Book";
 // import Footer from "../components/Footer";
 import API from "../utils/API";
-// import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+
 
 class Home extends Component {
   state = {
-    products: [],
-    
+    products: []
   };
-
 
   componentDidMount() {
     this.getSavedProducts();
@@ -29,14 +23,7 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-//   handleProductAdd = id => {
-//     API.addCartProduct(id).then(res =>
-//       this.setState({
-//         cartProducts: [res.data]
-//       })
-//     )
-//     .catch(err => console.log(err));
-// };
+
 
 handleProductAdd = id => {
   const product = this.state.products.find(product => product._id === id);
@@ -47,9 +34,7 @@ handleProductAdd = id => {
     pictureUrl: product.pictureUrl,
     price: product.price,
   })
-  // add some function that makes the add button dissapear
-  // also add a flash that says added to cart
-  // .then(() => this.getBooks());
+  .then(() => alert("added to cart") );
 };
 
 
@@ -69,9 +54,9 @@ handleProductAdd = id => {
                       Button={() => (
                         <button
                           onClick={() => this.handleProductAdd(product._id)}
-                          className="btn btn-sm btn-danger ml-2 mt-auto"
+                          className="btn btn-sm btn-secondary ml-2 mt-auto"
                         >
-                          Add
+                          Add <i class="fas fa-plus"></i>
                         </button>
                       )}
                     />

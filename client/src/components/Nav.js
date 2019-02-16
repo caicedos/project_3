@@ -19,17 +19,20 @@ const Header = (props) =>{
                         </a>
                     </li>
                     <li className="nav-item">
+                        <a href="/signin" className="nav-link">
+                            SignIn
+                        </a>
+                    </li>
+                    <li className="nav-item">
                         <a href="/cart" className="nav-link">
-                            Cart
+                        <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
            
-            
-
-        </nav>
+    </nav>
     )
 }
 

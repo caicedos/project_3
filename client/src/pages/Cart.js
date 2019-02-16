@@ -1,22 +1,15 @@
 import React, { Component } from "react";
-// import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Price from "../components/Price";
-
-// import Form from "../components/Form";
-// import Book from "../components/Book";
 // import Footer from "../components/Footer";
 import API from "../utils/API";
-// import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+
 
 class Cart extends Component {
   state = {
     cartProducts: [],
     
   };
-
-
 
   componentDidMount() {
     this.getSavedCart();
@@ -35,13 +28,9 @@ class Cart extends Component {
   };
 
 
-
   handleCartDelete = id => {
     API.deleteCart(id).then(res => this.getSavedCart());
   };
-
-
-
 
 
   render() {
@@ -51,16 +40,12 @@ class Cart extends Component {
         <h1 className="text-center">Checkout</h1>
         
         {cartProducts.map(cart => (
-                    <Price
-                   
-                      key={cart._id}
-                      price={cart.price}
-                      
-                    />
-                  ))}
+            <Price
+              key={cart._id}
+              price={cart.price}        
+            />
+        ))}
        
-                 
-        
         {cartProducts.length ? (
                 <div className="card-deck">
                   {cartProducts.map(cart => (
@@ -75,7 +60,7 @@ class Cart extends Component {
                           onClick={() => this.handleCartDelete(cart._id)}
                           className="btn btn-sm btn-danger ml-2 mt-auto"
                         >
-                          delete
+                          <i class="fas fa-trash-alt"></i>
                         </button>
                       )}
                     />
