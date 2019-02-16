@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Card from "../components/Card";
-import Price from "../components/Price";
-// import Footer from "../components/Footer";
+// import Price from "../components/Price";
+import {Row} from "../components/Grid";
+
 import API from "../utils/API";
 
 
@@ -38,14 +39,20 @@ class Cart extends Component {
     return (
       <div className="container">
         <h1 className="text-center">Checkout</h1>
-        
-        {cartProducts.map(cart => (
+        <br />
+        <h4>Total: </h4>
+        <button type="submit" className="btn btn-sm btn-primary">Buy <i class="fas fa-dollar-sign"></i></button>
+        <br />
+        <br />
+        {/* total sum */}
+        {/* {cartProducts.map(cart => (
             <Price
               key={cart._id}
               price={cart.price}        
             />
-        ))}
-       
+        ))} */}
+
+       <Row>
         {cartProducts.length ? (
                 <div className="card-deck">
                   {cartProducts.map(cart => (
@@ -69,6 +76,8 @@ class Cart extends Component {
               ) : (
                 <h2 className="text-center">Cart is empty</h2>
               )}
+</Row>
+
       </div>
     );
   }

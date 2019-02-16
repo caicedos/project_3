@@ -1,18 +1,19 @@
 import React from "react";
-// import {Link} from "react-router-dom";
 
 
-function Signin() {
+function Register() {
   return (
-    <div className="container px-5 mt-5">
-
-      <h1 className="text-center">SignIn</h1>
-
+    <div className="container mt-5">
      <form>
+  <div className="form-group">
+    <h6 for="exampleInputName1">Name</h6>
+    <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name"/>
+    
+  </div>
   <div className="form-group">
     <h6 for="exampleInputEmail1">Email address</h6>
     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-    
+    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div className="form-group">
     <h6 for="exampleInputPassword1">Password</h6>
@@ -22,12 +23,12 @@ function Signin() {
    
     
   </div>
-  <a type="submit" className="btn btn-sm btn-primary">Signin</a>
+  <a type="submit" className="btn btn-sm btn-primary">Submit</a>
   
-  <a href="/register" className="btn btn-sm btn-secondary">Register</a>
+
 </form>
    </div>
   );
 }
 
-export default Signin;
+export default Register;
