@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
+import Price from "../components/Price";
+
 // import Form from "../components/Form";
 // import Book from "../components/Book";
 // import Footer from "../components/Footer";
@@ -10,28 +12,36 @@ import { List } from "../components/List";
 
 class Cart extends Component {
   state = {
-    cartProducts: []
+    cartProducts: [],
+    
   };
 
 
 
   componentDidMount() {
     this.getSavedCart();
+    
   }
 
   getSavedCart = () => {
     API.getSavedCart()
       .then(res =>
         this.setState({
-          cartProducts: res.data
+          cartProducts: res.data,
+          
         })
       )
       .catch(err => console.log(err));
   };
 
+
+
   handleCartDelete = id => {
     API.deleteCart(id).then(res => this.getSavedCart());
   };
+
+
+
 
 
   render() {
@@ -39,6 +49,18 @@ class Cart extends Component {
     return (
       <div className="container">
         <h1 className="text-center">Checkout</h1>
+        
+        {cartProducts.map(cart => (
+                    <Price
+                   
+                      key={cart._id}
+                      price={cart.price}
+                      
+                    />
+                  ))}
+       
+                 
+        
         {cartProducts.length ? (
                 <div className="card-deck">
                   {cartProducts.map(cart => (
